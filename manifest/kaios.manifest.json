@@ -1,0 +1,27 @@
+{
+  "name": "KAIOS",
+  "fullName": "Kerem AI Operating System",
+  "type": "software-engineering-operating-system",
+  "currentVersion": "v0.1",
+  "principle": "AI should accelerate software engineering, not replace software engineers.",
+  "activeVersionPath": "versions/v0.1",
+  "modules": [
+    "core",
+    "context-loader",
+    "module-registry",
+    "engineering-contract",
+    "architecture",
+    "pattern-engine",
+    "security-engine",
+    "testing-engine",
+    "performance-engine",
+    "debug-engine",
+    "review-engine",
+    "learning-engine"
+  ],
+  "nonGoals": [
+    "autonomous-agent-framework",
+    "workflow-automation-platform",
+    "prompt-marketplace"
+  ]
+}
