@@ -4,7 +4,7 @@ Get your first KAIOS-guided engineering session running in under 10 minutes.
 
 ## What Is KAIOS?
 
-KAIOS (Kerem AI Operating System) is a **Software Engineering Operating System**
+KAIOS (K AI Operating System) is a **Software Engineering Operating System**
 for AI-assisted development.
 
 It sits between you and any AI assistant and provides:
