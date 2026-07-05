@@ -1,6 +1,6 @@
 # KAIOS
 
-KAIOS, Kerem AI Operating System, is a Software Engineering Operating System
+KAIOS, K AI Operating System, is a Software Engineering Operating System
 for AI-assisted software development.
 
 It is not an AI agent framework, automation platform, or prompt collection.
