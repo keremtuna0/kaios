@@ -37,7 +37,7 @@ decisions.
 Clone the repository:
 
 ```bash
-git clone <kaios-repository-url> kaios
+git clone https://github.com/keremtuna0/kaios kaios
 cd kaios
 ```
 
