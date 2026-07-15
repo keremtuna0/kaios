@@ -101,6 +101,9 @@ At the start of a session, provide:
 If the assistant supports project rules or custom instructions, place the KAIOS
 prompt there.
 
+KAIOS is manually loaded documentation and guidance. It does not execute
+modules, run autonomous agents, or automate a project workflow.
+
 ## Daily Workflow
 
 ```text
@@ -167,6 +170,12 @@ implementation.
 - Keep module boundaries explicit.
 - Review security and testing for every meaningful feature.
 - End with a learning summary.
+
+## Reference Workflow
+
+For an ordered Development Mode example from task context through review and
+learning, read
+[`examples/real-projects/go-fiber-auth/README.md`](../examples/real-projects/go-fiber-auth/README.md).
 
 ## Common Mistakes
 

@@ -54,6 +54,16 @@ Before implementation, KAIOS produces explicit artifacts:
 - `examples/module-resolutions/jwt-auth-module-resolution.md`
 - `examples/contracts/jwt-auth-engineering-contract.md`
 
+For a complete real-project reference, read
+[`examples/real-projects/go-fiber-auth/README.md`](examples/real-projects/go-fiber-auth/README.md).
+
+## Operating Model
+
+KAIOS is documentation-driven and model-agnostic. A developer manually loads
+an assistant prompt or project rule, supplies project context, and retains
+engineering judgment. KAIOS has no autonomous runtime, module executor, or
+background workflow automation.
+
 ## Non-Negotiables
 
 - Think before coding.

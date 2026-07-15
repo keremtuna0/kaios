@@ -1,39 +1,53 @@
 # Review Engine
 
-## Responsibility
+## Purpose
 
-The Review Engine critiques completed work before it is considered done.
+Critique completed work against its contract before it is considered ready.
+
+## Responsibilities
+
+- review architecture, quality, security, performance, and testability
+- distinguish required fixes from follow-up improvements
 
 ## Inputs
 
-- implementation
-- tests
-- architecture decision
-- requirements
+- Engineering Contract
+- implementation summary, tests, and architecture decision
 
 ## Outputs
 
-- architecture review
-- code quality review
-- security review
-- performance review
-- testability review
-- improvement suggestions
+- Review Report
 
 ## Activation Criteria
 
-Use before every task is completed.
+Use before every meaningful task is completed.
+
+## Dependencies
+
+- Engineering Contract
 
 ## Non-Goals
 
-- rewriting everything automatically
-- blocking useful progress for theoretical perfection
+- rewriting everything automatically or demanding theoretical perfection
+
+## Workflow
+
+```text
+Contract + evidence -> readiness checks -> Review Report
+```
+
+## Quality Gates
+
+- Every acceptance criterion is satisfied, deferred, or explicitly blocked.
 
 ## Review Checklist
 
-- Does the implementation satisfy requirements?
-- Are module boundaries clear?
-- Is naming understandable?
-- Are failure paths handled?
-- Are tests meaningful?
-- Are security and performance risks documented?
+- Are boundaries, failures, tests, and security/performance risks addressed?
+
+## Extension Rules
+
+- Add review lenses only when they have a named owner and decision outcome.
+
+## Example
+
+Reject readiness if protected-route failures are untested or JWT secrets can be logged.

@@ -2,107 +2,60 @@
 
 ## Purpose
 
-The Context Loader extracts structured task context from an unstructured user
-request.
-
-It understands the task. It does not design or implement the solution.
+Extract structured task context from an unstructured developer request.
 
 ## Responsibilities
 
-- extract facts from the user request
-- separate facts from assumptions
-- classify the task type
-- identify missing context
-- estimate risk level
-- identify the recommended development mode
-- produce a Context Summary artifact
+- separate facts, assumptions, and unknowns
+- classify task type, risk, mode, and candidate modules
+- identify missing project context and the developer's learning needs
 
 ## Inputs
 
-- raw user request
-- repository context when available
-- existing project constraints
-- current architecture notes
-- relevant files or folder structure
-- user learning preference
-- production expectations
+- raw request
+- repository context, architecture notes, and relevant files when available
+- project constraints, production expectations, and learning preference
 
 ## Outputs
 
-- problem domain
-- task type
-- target language and framework
-- data storage requirements
-- expected complexity
-- production requirements
-- learning needs
-- assumptions
-- missing questions
-- risk level
-- recommended development mode
-- candidate modules
+- Context Summary
+- problem domain, target stack, storage needs, and expected complexity
+- facts, assumptions, unknowns, risk level, recommended mode, and candidate modules
 
-## Workflow
+## Activation Criteria
 
-```text
-Read request
--> extract facts
--> separate assumptions
--> classify task
--> detect stack and domain
--> identify missing context
--> estimate risk
--> recommend mode
--> produce Context Summary
-```
+Use at the start of every meaningful task or when a request becomes ambiguous.
 
-## Task Types
+## Dependencies
 
-- new project
-- feature development
-- bug fix
-- refactor
-- architecture review
-- security review
-- performance review
-- learning request
-- documentation task
-
-## Risk Levels
-
-### Low
-
-Documentation, small isolated changes, or learning-only requests.
-
-### Medium
-
-Normal feature work, moderate refactors, integrations, or data model changes.
-
-### High
-
-Authentication, authorization, payments, secrets, user data, infrastructure,
-security fixes, production incidents, or broad architecture changes.
-
-## Extension Points
-
-- stack detectors
-- project type detectors
-- domain classifiers
-- risk classifiers
-- learning-level adapters
-- repository structure analyzers
-
-## Activation Rules
-
-Use when a task starts or when the request is ambiguous.
+- Core
 
 ## Non-Goals
 
 - choosing architecture
-- writing code
-- reviewing implementation
+- writing code or reviewing implementation
 
-## Context Summary Shape
+## Workflow
+
+```text
+Request -> extract facts -> separate assumptions -> classify task and stack
+-> identify missing context -> assess risk and mode -> Context Summary
+```
+
+### Task Classification
+
+Classify the request as a new project, feature development, bug fix, refactor,
+architecture/security/performance review, learning request, or documentation
+task. A task may have more than one relevant label.
+
+### Risk Levels
+
+- **Low:** documentation, small isolated changes, or learning-only work.
+- **Medium:** normal feature work, moderate refactors, integrations, or data-model changes.
+- **High:** authentication, authorization, payments, secrets, user data,
+  infrastructure, security fixes, incidents, or broad architecture changes.
+
+### Context Summary Shape
 
 ```text
 problem_domain:
@@ -120,10 +73,20 @@ candidate_modules:
 learning_needs:
 ```
 
+## Quality Gates
+
+- Facts, assumptions, and unknowns are visibly separate.
+- The summary identifies stack, constraints, risk, mode, and candidate modules.
+
 ## Review Checklist
 
-- Were assumptions separated from facts?
-- Were only necessary questions asked?
-- Was the problem domain identified clearly?
-- Was the risk level justified?
-- Was the recommended mode appropriate?
+- Is the domain clear, risk justified, mode appropriate, and are only necessary questions identified?
+
+## Extension Rules
+
+- Add stack, project-type, domain, risk, learning-level, or repository
+  classifiers only when they preserve the fact-versus-assumption boundary.
+
+## Example
+
+JWT authentication is high risk because it handles identity, secrets, and user data.

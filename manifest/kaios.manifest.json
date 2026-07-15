@@ -1,27 +1,47 @@
 {
   "name": "KAIOS",
   "fullName": "K AI Operating System",
-  "type": "software-engineering-operating-system",
-  "currentVersion": "v0.1",
-  "principle": "AI should accelerate software engineering, not replace software engineers.",
+  "currentVersion": "v0.1.0",
   "activeVersionPath": "versions/v0.1",
+  "type": "documentation-driven-software-engineering-operating-system",
+  "executionModel": "manual assistant prompt or project-rule loading; no executable module runtime",
+  "principle": "AI should accelerate software engineering, not replace software engineers.",
+  "supportedDevelopmentModes": ["Bootstrap Mode", "Development Mode", "Maintenance Mode"],
+  "assistantPrompts": {
+    "chatgpt": "assistant-prompts/chatgpt.md",
+    "codex": "assistant-prompts/codex.md",
+    "cursor": "assistant-prompts/cursor.md",
+    "claude": "assistant-prompts/claude.md",
+    "gemini": "assistant-prompts/gemini.md",
+    "canonical": "versions/v0.1/PROMPT.md"
+  },
+  "contractTemplates": [
+    "contracts/contract-template.md",
+    "contracts/engineering-contract.md",
+    "templates/module-template.md"
+  ],
+  "examples": [
+    "examples/quickstart-session.md",
+    "examples/real-projects/go-fiber-auth/README.md"
+  ],
   "modules": [
-    "core",
-    "context-loader",
-    "module-registry",
-    "engineering-contract",
-    "architecture",
-    "pattern-engine",
-    "security-engine",
-    "testing-engine",
-    "performance-engine",
-    "debug-engine",
-    "review-engine",
-    "learning-engine"
+    {"id":"core","path":"modules/core.md","dependencies":[],"activationCriteria":"Always active.","inputs":["user request","project vision","active version"],"outputs":["workflow expectations","quality constraints"]},
+    {"id":"context-loader","path":"modules/context-loader.md","dependencies":["core"],"activationCriteria":"Start of every meaningful or ambiguous task.","inputs":["raw request","project context","constraints"],"outputs":["Context Summary"]},
+    {"id":"module-registry","path":"modules/module-registry.md","dependencies":["core","context-loader"],"activationCriteria":"After a Context Summary.","inputs":["Context Summary","risk","mode"],"outputs":["Module Resolution"]},
+    {"id":"engineering-contract","path":"modules/engineering-contract.md","dependencies":["core","context-loader","module-registry"],"activationCriteria":"Before meaningful implementation.","inputs":["Context Summary","Module Resolution","constraints"],"outputs":["Engineering Contract"]},
+    {"id":"architecture","path":"modules/architecture.md","dependencies":["engineering-contract"],"activationCriteria":"Work affecting structure or boundaries.","inputs":["Engineering Contract","requirements"],"outputs":["Architecture Decision"]},
+    {"id":"pattern-engine","path":"modules/pattern-engine.md","dependencies":["architecture"],"activationCriteria":"Extension points, variants, or dependency boundaries.","inputs":["Architecture Decision","change points"],"outputs":["Pattern Decision"]},
+    {"id":"security-engine","path":"modules/security-engine.md","dependencies":["engineering-contract","architecture"],"activationCriteria":"Security-sensitive data or trust boundaries.","inputs":["contract","architecture","data flow"],"outputs":["Security Notes","Threat Model"]},
+    {"id":"testing-engine","path":"modules/testing-engine.md","dependencies":["engineering-contract","architecture"],"activationCriteria":"Every implementation task.","inputs":["contract","implementation plan","risk"],"outputs":["Test Strategy"]},
+    {"id":"performance-engine","path":"modules/performance-engine.md","dependencies":["architecture"],"activationCriteria":"Data access, external calls, concurrency, or expected scale.","inputs":["architecture","load assumptions"],"outputs":["Performance Notes"]},
+    {"id":"debug-engine","path":"modules/debug-engine.md","dependencies":["core"],"activationCriteria":"Bugs, failing tests, unexpected behavior, or incidents.","inputs":["evidence","reproduction","logs"],"outputs":["Debug Plan"]},
+    {"id":"review-engine","path":"modules/review-engine.md","dependencies":["engineering-contract"],"activationCriteria":"Before a meaningful task is complete.","inputs":["contract","implementation summary","tests"],"outputs":["Review Report"]},
+    {"id":"learning-engine","path":"modules/learning-engine.md","dependencies":["review-engine"],"activationCriteria":"End of every meaningful task.","inputs":["final summary","decisions","review findings"],"outputs":["Learning Summary"]}
   ],
   "nonGoals": [
     "autonomous-agent-framework",
     "workflow-automation-platform",
-    "prompt-marketplace"
+    "vendor-specific-prompt-collection",
+    "executable-module-runtime"
   ]
 }

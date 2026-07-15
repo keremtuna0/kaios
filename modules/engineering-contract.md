@@ -2,16 +2,28 @@
 
 ## Purpose
 
-The Engineering Contract module defines expectations before planning and
-implementation begin.
+Turn task context into explicit, testable expectations before implementation.
 
 ## Responsibilities
 
-- convert context into explicit scope
-- define acceptance criteria
-- define quality requirements
+- define scope, acceptance criteria, quality requirements, and learning goals
 - connect selected modules to review expectations
-- prevent hidden assumptions
+- make assumptions and architecture constraints explicit
+
+## Inputs
+
+- Context Summary
+- Module Resolution
+- user constraints, project constraints, and development mode
+
+## Outputs
+
+- Engineering Contract
+- acceptance criteria, architecture constraints, review checklist, and learning goals
+
+## Activation Criteria
+
+Use before meaningful implementation, especially features, fixes, refactors, and security-sensitive work.
 
 ## Dependencies
 
@@ -19,51 +31,31 @@ implementation begin.
 - Context Loader
 - Module Registry
 
-## Inputs
-
-- Context Summary
-- Module Resolution
-- user constraints
-- project constraints
-- development mode
-
-## Outputs
-
-- Engineering Contract
-- acceptance criteria
-- architecture constraints
-- review checklist
-- learning goals
-
-## Activation Rules
-
-Use before implementation for:
-
-- new projects
-- new features
-- bug fixes
-- refactors
-- architecture decisions
-- security-sensitive work
-
-## Extension Rules
-
-Extensions may add domain-specific contract sections, such as authentication,
-payment, deployment, or data privacy requirements.
-
-Extensions must not remove the core contract fields: scope, acceptance criteria,
-quality requirements, review checklist, and learning goals.
-
 ## Non-Goals
 
-- generating code
-- replacing requirements discussion
-- becoming a runtime configuration format
+- generating code or becoming a runtime configuration format
+
+## Workflow
+
+```text
+Context + resolution -> explicit scope and criteria -> Engineering Contract
+```
+
+## Quality Gates
+
+- Scope, assumptions, quality requirements, and acceptance criteria are explicit and testable.
 
 ## Review Checklist
 
-- Is scope explicit?
-- Are assumptions visible?
-- Are acceptance criteria testable?
-- Are selected modules connected to review expectations?
-- Is learning included?
+- Is scope explicit, are assumptions visible, and are acceptance criteria testable?
+- Are selected modules connected to review expectations and is learning included?
+
+## Extension Rules
+
+- Extensions may add domain sections such as authentication, payment, deployment,
+  or data-privacy requirements, but must retain scope, acceptance criteria,
+  quality requirements, review checklist, and learning goals.
+
+## Example
+
+Exclude OAuth from an initial JWT contract while requiring safe credential errors.

@@ -1,9 +1,13 @@
 # Core Module
 
-## Responsibility
+## Purpose
 
-The Core module defines the KAIOS philosophy, mandatory workflow, quality rules,
-and interaction principles.
+Preserve KAIOS philosophy, mandatory workflow, and quality expectations.
+
+## Responsibilities
+
+- set the documentation-driven, developer-led boundary
+- require explicit decisions, review, and learning
 
 ## Inputs
 
@@ -15,22 +19,38 @@ and interaction principles.
 
 - workflow expectations
 - quality constraints
-- review requirements
-- learning requirements
 
 ## Activation Criteria
 
-Always active.
+Always active for a KAIOS-guided task.
+
+## Dependencies
+
+- None
 
 ## Non-Goals
 
-- generating application code directly
 - selecting domain-specific implementation details
-- replacing specialized modules
+- generating application code directly
+
+## Workflow
+
+```text
+Task -> apply philosophy and workflow -> quality expectations
+```
+
+## Quality Gates
+
+- The task remains developer-led and does not imply autonomous execution.
 
 ## Review Checklist
 
-- Did the response preserve the KAIOS vision?
-- Did it prioritize thinking before coding?
-- Did it explain trade-offs?
-- Did it include review and learning?
+- Does the work explain decisions, include review, and end with learning?
+
+## Extension Rules
+
+- Do not weaken the non-autonomous or model-agnostic boundary.
+
+## Example
+
+Require an Engineering Contract before a meaningful API change is implemented.

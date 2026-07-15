@@ -2,89 +2,62 @@
 
 ## Purpose
 
-The Module Registry determines which KAIOS modules should participate in a
-task.
-
-It recommends modules. It does not execute autonomous agents.
+Select the KAIOS guidance modules relevant to a task; it does not execute them.
 
 ## Responsibilities
 
-- read the Context Summary
-- select always-on modules
-- select risk-based modules
-- explain why modules were selected
-- explain why modules were skipped
-- produce a Module Resolution artifact
+- select always-on and risk-based modules
+- explain selected and intentionally skipped modules
+- state the expected output of each selected module
+
+## Inputs
+
+- Context Summary
+- task type, risk, complexity, mode, and constraints
+
+## Outputs
+
+- Module Resolution
+- selected modules with reason and expected output; intentionally skipped modules with reason
+
+## Activation Criteria
+
+Use after Context Loader produces a Context Summary.
 
 ## Dependencies
 
 - Core
 - Context Loader
 
-## Inputs
+## Non-Goals
 
-- context summary
-- task type
-- risk level
-- complexity level
-- development mode
-- known constraints
-
-## Outputs
-
-- selected modules
-- reason each module is selected
-- modules intentionally skipped
-- expected output from each selected module
+- implementing module behavior
+- creating autonomous agents or forcing every module into every task
 
 ## Workflow
 
 ```text
-Context Summary
--> select always-on modules
--> evaluate task type
--> evaluate risk triggers
--> select specialized modules
--> document skipped modules
--> produce Module Resolution
+Context Summary -> select always-on modules -> evaluate task and risk triggers
+-> select specialized modules -> document skips -> Module Resolution
 ```
 
-## Always-On Modules
+### Always-On Modules
 
-- Core
-- Context Loader
-- Module Registry
-- Engineering Contract
-- Review Engine
-- Learning Engine
+Core, Context Loader, Module Registry, Engineering Contract, Review Engine, and
+Learning Engine are always selected for a meaningful KAIOS task.
 
-## Risk-Based Activation
+### Risk-Based Activation
 
-Security Engine activates for authentication, authorization, user data, secrets,
-files, external APIs, persistence, payments, or deployment.
+- **Security:** authentication, authorization, user data, secrets, files,
+  external APIs, persistence, payments, or deployment.
+- **Testing:** every implementation task.
+- **Performance:** data access, external services, large collections,
+  concurrency, real-time behavior, or expected scale.
+- **Pattern:** extension points, behavior variants, dependency boundaries, or
+  repeated construction logic.
+- **Debug:** bugs, failing tests, unexpected behavior, or incidents.
 
-Testing Engine activates for every implementation task.
-
-Performance Engine activates for data access, external services, large
-collections, concurrency, real-time behavior, or expected scale.
-
-Pattern Engine activates for extension points, multiple behavior variants,
-dependency boundaries, or repeated construction logic.
-
-Debug Engine activates for bugs, failing tests, unexpected behavior, and
-incidents.
-
-## Activation Rules
-
-Use after the Context Loader produces a context summary.
-
-## Non-Goals
-
-- implementing module behavior
-- forcing every module into every task
-- creating autonomous sub-agents
-
-## Module Resolution Shape
+### Module Resolution Shape
 
 ```text
 selected_modules:
@@ -96,22 +69,20 @@ skipped_modules:
     reason:
 ```
 
-## Extension Rules
+## Quality Gates
 
-New modules must:
-
-- own a distinct responsibility
-- declare dependencies
-- declare inputs and outputs
-- define activation rules
-- define non-goals
-- include review criteria
-- avoid overlapping existing modules without explicit justification
+- Every selected and skipped module has a task-specific reason and selected modules name their expected output.
 
 ## Review Checklist
 
-- Were selected modules justified?
-- Were unnecessary modules avoided?
-- Does selection match task risk?
-- Are skipped modules explained?
-- Are module outputs clear?
+- Does selection match task risk, avoid unnecessary modules, and explain skips clearly?
+
+## Extension Rules
+
+- New modules must own a distinct responsibility, declare dependencies, inputs,
+  outputs, activation criteria, non-goals, extension rules, and review criteria,
+  and avoid overlap without explicit justification.
+
+## Example
+
+Select Security and Testing for JWT authentication; skip Debug when no defect is investigated.

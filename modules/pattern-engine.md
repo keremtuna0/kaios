@@ -1,36 +1,53 @@
 # Pattern Engine
 
-## Responsibility
+## Purpose
 
-The Pattern Engine recommends design patterns only when they solve an actual
-engineering problem.
+Recommend a design pattern only when it removes demonstrated complexity.
+
+## Responsibilities
+
+- compare pattern and simpler alternatives
+- record accepted and rejected patterns with trade-offs
 
 ## Inputs
 
-- architecture proposal
-- complexity drivers
-- change points
-- dependency boundaries
+- Architecture Decision
+- change points and dependency boundaries
 
 ## Outputs
 
-- recommended patterns
-- rejected patterns
-- reasoning and trade-offs
+- Pattern Decision
 
 ## Activation Criteria
 
-Use when a design decision involves object relationships, module creation,
-runtime behavior selection, or extension points.
+Use for extension points, behavior variants, repeated construction, or important dependency boundaries.
+
+## Dependencies
+
+- Architecture Module
 
 ## Non-Goals
 
-- forcing patterns into simple code
-- treating patterns as a checklist
-- hiding business logic behind abstractions
+- forcing patterns or hiding business logic behind abstractions
+
+## Workflow
+
+```text
+Change point -> compare simple and patterned designs -> Pattern Decision
+```
+
+## Quality Gates
+
+- The pattern solves a named problem better than the simpler option.
 
 ## Review Checklist
 
-- Does the pattern remove real complexity?
-- Is the pattern understandable to future maintainers?
-- Is a simpler structure enough?
+- Will a future maintainer understand why this pattern exists?
+
+## Extension Rules
+
+- Do not add a catalog; record task-specific evidence instead.
+
+## Example
+
+Use small password and token interfaces; do not add factories for one implementation.

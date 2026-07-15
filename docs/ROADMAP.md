@@ -2,7 +2,7 @@
 
 ## v0.1 - Core System
 
-Status: active
+Status: release candidate preparation complete in Milestone 2
 
 Focus:
 
@@ -14,7 +14,7 @@ Focus:
 
 ## Milestone 1 - Minimum Usable Engineering System
 
-Status: active
+Status: complete
 
 Focus:
 
@@ -25,6 +25,17 @@ Focus:
 - daily usage workflow
 - development modes
 - first project walkthrough
+
+## Milestone 2 - Repository Validation and Real-Project Readiness
+
+Status: complete
+
+Focus:
+
+- standardized module documentation contracts
+- descriptive manifest and optional validation script
+- complete Go/Fiber/PostgreSQL JWT reference workflow
+- synchronized onboarding and integration documentation
 
 ## v0.2 - Playbooks
 
@@ -38,15 +49,12 @@ Focus:
 - deployment playbook
 - bug fixing playbook
 
-## v0.3 - Engines
+## v0.3 - Expanded Guidance
 
 Focus:
 
-- pattern recommendation engine
-- security review engine
-- testing strategy engine
-- performance review engine
-- debug engine
+- deeper pattern, security, testing, performance, and debugging playbooks
+- keep these documentation-guided capabilities, not an autonomous runtime
 
 ## v1.0 - Stable Methodology
 

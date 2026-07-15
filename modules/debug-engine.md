@@ -1,39 +1,54 @@
 # Debug Engine
 
-## Responsibility
+## Purpose
 
-The Debug Engine guides systematic root cause analysis.
+Guide evidence-based root-cause analysis for incorrect behavior.
+
+## Responsibilities
+
+- separate observations from hypotheses
+- define reproduction, investigation, fix, and regression-test steps
 
 ## Inputs
 
-- observed behavior
-- expected behavior
-- reproduction steps
-- logs or error messages
-- recent changes
+- observed and expected behavior
+- reproduction steps, logs, and recent changes
 
 ## Outputs
 
-- hypotheses
-- investigation plan
-- likely root cause
-- fix strategy
-- regression test recommendation
+- Debug Plan
+- likely root cause and regression-test recommendation
 
 ## Activation Criteria
 
-Use when the user reports a bug, failing test, unexpected behavior, or
-production incident.
+Use for bugs, failing tests, unexpected behavior, and incidents.
+
+## Dependencies
+
+- Core
 
 ## Non-Goals
 
-- guessing fixes before understanding evidence
-- hiding uncertainty
-- changing unrelated code
+- guessing fixes or changing unrelated code
+
+## Workflow
+
+```text
+Evidence -> reproducible hypotheses -> root cause and targeted fix plan
+```
+
+## Quality Gates
+
+- A hypothesis is testable against evidence before a fix is proposed.
 
 ## Review Checklist
 
-- Is the bug reproducible?
-- Are facts separated from guesses?
-- Is the fix targeted?
-- Is a regression test proposed?
+- Is the bug reproducible and is a regression test planned?
+
+## Extension Rules
+
+- Add diagnostics only when they reduce a specific uncertainty.
+
+## Example
+
+Reproduce an expired-token failure before changing middleware validation.

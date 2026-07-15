@@ -3,6 +3,10 @@
 KAIOS can be used with new projects, existing projects, and multiple AI
 assistants.
 
+It is documentation-driven and model-agnostic: prompts or project rules are
+loaded manually, and the developer remains responsible for decisions. It is not
+an autonomous runtime or workflow executor.
+
 ## Integration Models
 
 ### External Reference Model
@@ -94,3 +98,8 @@ Provide the KAIOS prompt and attach the relevant docs or templates.
 
 Use the KAIOS prompt as the working instruction and provide repository context
 manually when needed.
+
+## Reference Workflow
+
+Use the Go/Fiber/PostgreSQL JWT artifacts as a concrete integration reference:
+[`examples/real-projects/go-fiber-auth/README.md`](../examples/real-projects/go-fiber-auth/README.md).

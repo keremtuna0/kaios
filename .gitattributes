@@ -1,0 +1,15 @@
+# Normalize repository text to LF for consistent cross-platform diffs.
+* text=auto eol=lf
+
+# Documentation, metadata, and source files.
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.py text eol=lf
+*.ps1 text eol=lf
+
+# Windows command interpreters benefit from CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf

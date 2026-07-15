@@ -120,6 +120,9 @@ Read these files in order:
 
 These show what KAIOS produces **before** implementation starts.
 
+For the complete Go/Fiber/PostgreSQL example, continue with
+[`examples/real-projects/go-fiber-auth/README.md`](examples/real-projects/go-fiber-auth/README.md).
+
 ## Your First Session Checklist
 
 Use this checklist for every meaningful task:
@@ -177,6 +180,7 @@ After your first session:
 | 3 | `docs/MODULE_OVERVIEW.md` | What each module does |
 | 4 | `docs/DEVELOPMENT_MODES.md` | Bootstrap, Development, Maintenance modes |
 | 5 | `docs/VISION.md` | Why KAIOS exists |
+| 6 | `examples/real-projects/go-fiber-auth/README.md` | Complete Development Mode reference workflow |
 
 ## Non-Negotiables
 

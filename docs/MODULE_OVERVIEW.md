@@ -13,10 +13,13 @@ Each module should define:
 - dependencies
 - inputs
 - outputs
-- activation rules
+- activation criteria
 - non-goals
+- workflow
+- quality gates
 - extension rules
 - review checklist
+- example
 
 ## v0.1 Modules
 
@@ -39,3 +42,6 @@ Each module should define:
 
 Add a module only when it owns a distinct engineering responsibility. Do not
 create modules for vague themes or one-off tasks.
+
+The Module Registry is documentation guidance only: it selects reasoning
+contracts for an assistant session and does not load or execute modules.

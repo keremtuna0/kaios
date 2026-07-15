@@ -1,39 +1,54 @@
 # Architecture Module
 
-## Responsibility
+## Purpose
 
-The Architecture module turns requirements into structure: boundaries, data
-flow, dependencies, and trade-offs.
+Turn requirements into boundaries, data flow, alternatives, and trade-offs.
+
+## Responsibilities
+
+- propose structure and dependency direction
+- choose and explain an approach
 
 ## Inputs
 
-- context summary
-- requirements
-- constraints
-- selected modules
+- Engineering Contract
+- requirements, constraints, and selected modules
 
 ## Outputs
 
-- architecture proposal
-- alternatives
-- trade-off analysis
-- selected approach
+- Architecture Decision
 - implementation boundaries
 
 ## Activation Criteria
 
-Use for any feature, system, module, integration, or refactor that affects
-structure.
+Use when work affects feature, system, integration, module, or refactor structure.
+
+## Dependencies
+
+- Engineering Contract
 
 ## Non-Goals
 
-- choosing patterns without a problem
-- adding abstraction for its own sake
-- replacing code review
+- adding abstractions without a problem or replacing code review
+
+## Workflow
+
+```text
+Contract -> alternatives and trade-offs -> Architecture Decision
+```
+
+## Quality Gates
+
+- Responsibilities and dependency direction are clear.
 
 ## Review Checklist
 
-- Are responsibilities separated?
-- Are dependencies pointing in the right direction?
-- Is the design simpler than the problem allows?
-- Can the module be reused later?
+- Is the selected structure simpler than the problem allows?
+
+## Extension Rules
+
+- Add a pattern only when a demonstrated change point needs it.
+
+## Example
+
+Keep HTTP handlers, auth use cases, persistence, token creation, and hashing at separate boundaries.

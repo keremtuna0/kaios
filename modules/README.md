@@ -20,12 +20,21 @@ responsibility and communicate through explicit artifacts.
 
 ## Module Contract
 
-Each module should define:
+Each registered module follows
+[`templates/module-template.md`](../templates/module-template.md) and defines:
 
-- responsibility
+- purpose
+- responsibilities
 - inputs
 - outputs
 - activation criteria
+- dependencies
 - non-goals
+- workflow
+- quality gates
 - review checklist
 - extension rules
+- example
+
+`module-registry.md` is the authoritative Module Registry contract;
+`registry.md` is a compatibility pointer for older references.

@@ -1,5 +1,22 @@
 # Changelog
 
+## v0.1.0 - Milestone 2 Repository Validation and Real-Project Readiness
+
+### Added
+
+- Added a v0.1 repository audit, standard module template, and optional
+  dependency-free repository validation script.
+- Added a complete Development Mode reference workflow for JWT authentication
+  in a Go Fiber API with PostgreSQL.
+
+### Changed
+
+- Standardized all registered module contracts and made the Module Registry
+  contract authoritative.
+- Expanded the manifest into descriptive metadata for modules, prompts,
+  templates, examples, and development modes without adding runtime behavior.
+- Synchronized onboarding, integration, overview, and roadmap documentation.
+
 ## v0.1.0 - Core System
 
 ### Added

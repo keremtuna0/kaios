@@ -1,39 +1,53 @@
 # Performance Engine
 
-## Responsibility
+## Purpose
 
-The Performance Engine identifies likely bottlenecks and scalability risks.
+Identify likely bottlenecks and define a proportional measurement strategy.
+
+## Responsibilities
+
+- examine data access, external calls, load assumptions, and concurrency risks
+- recommend measurable, simple mitigations
 
 ## Inputs
 
-- architecture proposal
-- data access patterns
-- expected load
-- external service calls
-- concurrency model
+- Architecture Decision
+- data access patterns, expected load, and external calls
 
 ## Outputs
 
-- likely bottlenecks
-- measurement strategy
-- caching considerations
-- database indexing notes
-- concurrency risks
+- Performance Notes
 
 ## Activation Criteria
 
-Use when the task includes data access, loops over large data, external calls,
-real-time behavior, background jobs, or expected scale.
+Use for data access, external services, large collections, concurrency, real-time work, or stated scale.
+
+## Dependencies
+
+- Architecture Module
 
 ## Non-Goals
 
-- premature optimization
-- speculative micro-optimizations
-- making code harder to read without evidence
+- premature optimization or speculative micro-optimization
+
+## Workflow
+
+```text
+Costly paths -> load assumptions and measures -> Performance Notes
+```
+
+## Quality Gates
+
+- Recommendations name a bottleneck hypothesis and measurement.
 
 ## Review Checklist
 
-- Is the expected load understood?
-- Are database and network costs visible?
-- Are expensive paths measurable?
-- Is the simplest acceptable performance strategy chosen?
+- Are database and network costs visible and is the simplest strategy chosen?
+
+## Extension Rules
+
+- Do not prescribe caching without an observed or credible measured need.
+
+## Example
+
+Index user email and measure login latency before introducing a token cache.
